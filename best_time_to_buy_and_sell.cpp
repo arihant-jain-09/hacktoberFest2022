@@ -1,26 +1,15 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-void answer(int n){
-
-    for(int i=1;i<=n;i++){
-		for(int j=1;j<=n;j++){
-			if(i<=j){
-              cout<<"*";
-			}
-			else{
-				cout<<" ";
-			}
-		}
-		for(int j=1;j<=n-i;j++){
-			cout<<"*";
-		}
-		cout<<"\n";
-	}
-}
-
-int main(){
-     int n;
-	 cin>>n;
-	 answer(n);
-}
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int l=prices.size(),mn=prices[0],mx=0;
+        for(int i=0;i<l;i++){
+            if(prices[i]<mn){
+                mn=prices[i];
+            }
+            else{
+                mx=max(prices[i]-mn,mx);
+            }
+        }
+        return mx;
+    }
+};
